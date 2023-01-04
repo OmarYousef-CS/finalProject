@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".PermitionsForApp">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Paierd Devices"/>
-    
+
     <ListView
         android:id="@+id/paierdDevices"
         android:layout_width="match_parent"
@@ -20,13 +19,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="availableDevices"/>
+        android:text="________________________________ \n availableDevices"/>
 
     <ListView
         android:id="@+id/availableDevices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-
 
 </LinearLayout>

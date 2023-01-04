@@ -38,36 +38,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        //checkPermissions();
         Button bt = findViewById(R.id.permitionsBt);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    //Toast.makeText(MainActivity.this, "permition location true", Toast.LENGTH_SHORT).show();
-                } else {
-                    requestLocationPermissions();
-                }
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
-
-                } else {
-                    requestBlEConnectPermissions();
-                }
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
-
-                } else {
-                    requestBlEScanPermissions();
-                }
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.BLUETOOTH_ADVERTISE) == PackageManager.PERMISSION_GRANTED) {
-
-                } else {
-                    requestBlEAdvertisePermissions();
-                }
+                //checkPermissions();
+                Intent intent = new Intent(MainActivity.this, ListOfDevices.class);
+                startActivity(intent);
             }
         });
+    }
+
+    private void checkPermissions() {
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(MainActivity.this, "permition location true", Toast.LENGTH_SHORT).show();
+        } else {
+            requestLocationPermissions();
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+
+        } else {
+            requestBlEConnectPermissions();
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+
+        } else {
+            requestBlEScanPermissions();
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.BLUETOOTH_ADVERTISE) == PackageManager.PERMISSION_GRANTED) {
+
+        } else {
+            requestBlEAdvertisePermissions();
+        }
     }
 
     private void requestLocationPermissions() {
@@ -135,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
                             Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
                         Toast.makeText(this, "ACCESS_FINE_LOCATION Permission Granted", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, ListOfDevices.class);
+                        startActivity(intent);
                     }
                 }else{
                     Toast.makeText(this, "ACCESS_FINE_LOCATION Permission Denied", Toast.LENGTH_SHORT).show();
@@ -145,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
                             Manifest.permission.BLUETOOTH_CONNECT)==PackageManager.PERMISSION_GRANTED){
                         Toast.makeText(this, "BLUETOOTH_CONNECT Permission Granted", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, ListOfDevices.class);
+                        startActivity(intent);
                     }
                 }else{
                     Toast.makeText(this, "BLUETOOTH_CONNECT Permission Denied", Toast.LENGTH_SHORT).show();
@@ -172,5 +183,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
